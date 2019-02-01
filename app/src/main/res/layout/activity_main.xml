@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/main_layout"
+        android:padding="8dp"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/purpose"
+            android:textColor="#222222"
+            android:textStyle="bold"
+            android:id="@+id/title"
+            android:padding="8dp"
+            android:textSize="24sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:fontFamily="casual"
+    />
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bDev_show"
+            android:padding="8dp"
+            android:text="@string/show_dev"
+            android:textStyle="bold"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+    />
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bDev_control"
+            android:padding="8dp"
+            android:text="@string/control_dev"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/bDev_show"
+            android:layout_marginTop="15dp"
+    />
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bDev_log"
+            android:padding="8dp"
+            android:text="@string/log_dev"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/bDev_control"
+            android:layout_marginTop="15dp"
+    />
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bSensor"
+            android:padding="8dp"
+            android:text="@string/sensor"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/bSen_log"
+            android:layout_marginTop="15dp"
+    />
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bSen_log"
+            android:padding="8dp"
+            android:text="@string/log_sensor"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/bDev_log"
+            android:layout_marginTop="15dp"
+    />
+</RelativeLayout>

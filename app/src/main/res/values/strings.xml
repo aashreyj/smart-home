@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Home Controller</string>
+    <string name="purpose">IoT-based Smart Home App</string>
+    <string name="ip">Enter IP of the Server here…</string>
+    <string name="show_dev">Show Enrolled Devices</string>
+    <string name="control_dev">Control Devices</string>
+    <string name="log_dev">Show Device Log</string>
+    <string name="sensor">Sensor</string>
+    <string name="log_sensor">Show Sensor Log</string>
+</resources>
