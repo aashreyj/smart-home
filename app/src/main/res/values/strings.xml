@@ -7,4 +7,5 @@
     <string name="log_dev">Show Device Log</string>
     <string name="sensor">Sensor</string>
     <string name="log_sensor">Show Sensor Log</string>
+    <string name="log_label">The following Device Logs were found online: </string>
 </resources>

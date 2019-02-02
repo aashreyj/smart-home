@@ -23,5 +23,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(startShowDevice)
             this.finish()
         }
+
+        device_log.setOnClickListener {
+            val startDeviceLog = Intent(this@MainActivity, Show_deviceLog::class.java)
+            startActivity(startDeviceLog)
+            this.finish()
+        }
     }
 }
