@@ -12,25 +12,26 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONException
 
+
 class show_devices : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_devices)
 
-        var iptext = findViewById<EditText>(R.id.server_ip)
-        var create = findViewById<Button>(R.id.bGo)
+
         var respond = findViewById<TextView>(R.id.response_text)
         var label = findViewById<TextView>(R.id.header)
+        val ip = (this.application as MyApplication).getAddress()
 
         val exampleRequestQueue = Volley.newRequestQueue(this)
 
-        create.setOnClickListener {
-            var url = iptext.text.toString() + "manage/api/devices/" //creating the url to be accessed
+
+            var url = ip + "manage/api/devices/" //creating the url to be accessed
             respond.text = ""
 
             val exampleStringRequest = JsonArrayRequest(
-                Request.Method.GET, url.toString(), null, Response.Listener { response ->
+                Request.Method.GET, url, null, Response.Listener { response ->
                     try {
                         // Loop through the array elements
                         for (i in 0 until response.length()) {
@@ -57,7 +58,7 @@ class show_devices : AppCompatActivity() {
                 })
 
             exampleRequestQueue.add(exampleStringRequest)
-        }
+
     }
 
     override fun onBackPressed() {

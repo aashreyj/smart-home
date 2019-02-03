@@ -14,31 +14,8 @@
         android:id="@+id/show_dev_layout"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/server_ip"
-            android:inputType="textUri"
-            android:hint="@string/ip"
-            android:textColorHint="#A9A9A9"
-            android:textColor="#222222"
-            android:padding="8dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:textStyle="italic"
-        />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Go"
-            android:textStyle="bold"
-            android:layout_below="@+id/server_ip"
-            android:padding="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/bGo"
-        />
+
 
         <TextView
             android:layout_height="wrap_content"

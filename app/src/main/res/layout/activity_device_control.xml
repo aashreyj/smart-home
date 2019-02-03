@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:id="@+id/control_layout"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textColor="#222222"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="50dp"
+                android:id="@+id/fan_text"
+                android:minWidth="100dp"
+                android:text="Fan"
+        />
+
+        <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/fan_text"
+                android:id="@+id/fan_control"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="45dp"
+        />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="97dp"
+                android:background="#918F8F"
+        />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textColor="#222222"
+                android:layout_marginTop="105dp"
+                android:layout_marginLeft="50dp"
+                android:id="@+id/light_text"
+                android:minWidth="100dp"
+                android:text="Light"
+        />
+
+        <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/light_text"
+                android:id="@+id/light_control"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="100dp"
+        />
+    </RelativeLayout>
+</LinearLayout>

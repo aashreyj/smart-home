@@ -21,6 +21,20 @@
             android:fontFamily="casual"
     />
 
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#222222"
+            android:textStyle="italic"
+            android:hint="Enter IP of server here..."
+            android:id="@+id/ip_server"
+            android:padding="8dp"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+    />
+
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,7 +44,7 @@
             android:textStyle="bold"
             android:layout_below="@+id/title"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="100dp"
     />
 
     <Button
@@ -57,27 +71,4 @@
             android:layout_marginTop="15dp"
     />
 
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bSensor"
-            android:padding="8dp"
-            android:text="@string/sensor"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/bSen_log"
-            android:layout_marginTop="15dp"
-    />
-
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bSen_log"
-            android:padding="8dp"
-            android:text="@string/log_sensor"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/bDev_log"
-            android:layout_marginTop="15dp"
-    />
 </RelativeLayout>

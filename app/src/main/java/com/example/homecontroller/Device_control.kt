@@ -4,29 +4,28 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
+import android.widget.ToggleButton
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONException
 
-class Show_deviceLog : AppCompatActivity() {
+class Device_control : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_show_device_log)
+        setContentView(R.layout.activity_device_control)
 
-        var respond = findViewById<TextView>(R.id.response_text)
-        var label = findViewById<TextView>(R.id.header)
+        val fan_control = findViewById<ToggleButton>(R.id.fan_control)
+        val light_control = findViewById<ToggleButton>(R.id.light_control)
         val ip = (this.application as MyApplication).getAddress()
-
         val exampleRequestQueue = Volley.newRequestQueue(this)
 
+        val url = (ip + "manage/api/devices/")  //creating the url to be accessed
 
-            var url = ip + "manage/api/devicelogs/" //creating the url to be accessed
-            respond.text = ""
+
 
             val exampleStringRequest = JsonArrayRequest(
                 Request.Method.GET, url, null, Response.Listener { response ->
@@ -35,14 +34,19 @@ class Show_deviceLog : AppCompatActivity() {
                         for (i in 0 until response.length()) {
                             // Get current json object
                             val devices = response.getJSONObject(i)
-
-                            val device = devices.getString("device")
-                            val datetime = devices.getString("datetime")
                             val state = devices.getString("state")
 
-                            label.text = "The following Device Logs were found online:"
-                            respond.append("Device Name: $device\nTime Log: $datetime\nState Change: $state\n\n\n")
-
+                            if (i == 0) {
+                                if (state == "On")
+                                    fan_control.isChecked = true
+                                else if (state == "Off")
+                                    fan_control.isChecked = false
+                            }else if (i == 1) {
+                                if (state == "On")
+                                    light_control.isChecked = true
+                                else if (state == "Off")
+                                    light_control.isChecked = false
+                            }
                         }
                     } catch (e: JSONException) {
                         e.printStackTrace()
@@ -50,17 +54,14 @@ class Show_deviceLog : AppCompatActivity() {
                 }, Response.ErrorListener //Create an error listener to handle errors appropriately.
                 {
                     /* This code is executed if there is an error. */
-                    respond.text = ""
-                    respond.append("There was an error.")
                 })
-
             exampleRequestQueue.add(exampleStringRequest)
 
     }
 
     override fun onBackPressed() {
-        var backToMain = Intent(this@Show_deviceLog, MainActivity::class.java)
-        startActivity(backToMain)
+        val startMain = Intent(this@Device_control, MainActivity::class.java)
+        startActivity(startMain)
         this.finish()
     }
 }
