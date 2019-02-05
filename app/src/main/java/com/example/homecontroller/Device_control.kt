@@ -3,8 +3,6 @@ package com.example.homecontroller
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import android.widget.ToggleButton
 import com.android.volley.Request
 import com.android.volley.Response
@@ -23,12 +21,9 @@ class Device_control : AppCompatActivity() {
         val ip = (this.application as MyApplication).getAddress()
         val exampleRequestQueue = Volley.newRequestQueue(this)
 
-        val url = (ip + "manage/api/devices/")  //creating the url to be accessed
 
-
-
-            val exampleStringRequest = JsonArrayRequest(
-                Request.Method.GET, url, null, Response.Listener { response ->
+        val exampleStringRequest = JsonArrayRequest(
+            Request.Method.GET, (ip + "manage/api/devices/"), null, Response.Listener { response ->
                     try {
                         // Loop through the array elements
                         for (i in 0 until response.length()) {
@@ -56,6 +51,46 @@ class Device_control : AppCompatActivity() {
                     /* This code is executed if there is an error. */
                 })
             exampleRequestQueue.add(exampleStringRequest)
+
+
+        fan_control.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                val fanOnRequest = JsonArrayRequest(
+                    Request.Method.GET, (ip + "manage/api/devices/Fan/setstate/On"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
+                    {
+                        /* This code is executed if there is an error. */
+                    })
+                exampleRequestQueue.add(fanOnRequest)
+
+            } else {
+                val fanOffRequest = JsonArrayRequest(
+                    Request.Method.GET, (ip + "manage/api/devices/Fan/setstate/Off"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
+                    {
+                        /* This code is executed if there is an error. */
+                    })
+                exampleRequestQueue.add(fanOffRequest)
+            }
+        }
+
+        light_control.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                val fanOnRequest = JsonArrayRequest(
+                    Request.Method.GET, (ip + "manage/api/devices/Light/setstate/On"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
+                    {
+                        /* This code is executed if there is an error. */
+                    })
+                exampleRequestQueue.add(fanOnRequest)
+
+            } else {
+                val fanOffRequest = JsonArrayRequest(
+                    Request.Method.GET, (ip + "manage/api/devices/Light/setstate/Off"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
+                    {
+                        /* This code is executed if there is an error. */
+                    })
+                exampleRequestQueue.add(fanOffRequest)
+            }
+        }
+
 
     }
 
