@@ -3,6 +3,7 @@ package com.example.homecontroller
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import android.widget.ToggleButton
 import com.android.volley.Request
 import com.android.volley.Response
@@ -62,13 +63,16 @@ class Device_control : AppCompatActivity() {
                     })
                 exampleRequestQueue.add(fanOnRequest)
 
-            } else {
+                Toast.makeText(this@Device_control, "Fan was switched On.",Toast.LENGTH_SHORT).show()
+
+            } else if (!isChecked){
                 val fanOffRequest = JsonArrayRequest(
                     Request.Method.GET, (ip + "manage/api/devices/Fan/setstate/Off"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
                     {
                         /* This code is executed if there is an error. */
                     })
                 exampleRequestQueue.add(fanOffRequest)
+                Toast.makeText(this@Device_control, "Fan was switched Off.",Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -80,14 +84,16 @@ class Device_control : AppCompatActivity() {
                         /* This code is executed if there is an error. */
                     })
                 exampleRequestQueue.add(fanOnRequest)
+                Toast.makeText(this@Device_control, "Light was switched On.",Toast.LENGTH_SHORT).show()
 
-            } else {
+            } else if(!isChecked){
                 val fanOffRequest = JsonArrayRequest(
                     Request.Method.GET, (ip + "manage/api/devices/Light/setstate/Off"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
                     {
                         /* This code is executed if there is an error. */
                     })
                 exampleRequestQueue.add(fanOffRequest)
+                Toast.makeText(this@Device_control, "Light was switched Off.",Toast.LENGTH_SHORT).show()
             }
         }
 

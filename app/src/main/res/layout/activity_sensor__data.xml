@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:id="@+id/thermistor_layout"
+            android:layout_marginTop="75dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thermistor"
+                android:textColor="#222222"
+                android:textSize="18sp"
+                android:id="@+id/therm_label"
+                android:textStyle="bold"
+        />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/therm_label"
+                android:layout_marginLeft="30dp"
+                android:hint="Value for Sensor"
+                android:id="@+id/therm_input"
+                android:inputType="numberDecimal"
+        />
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/post_therm"
+                android:layout_below="@+id/therm_label"
+                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"
+                android:text="POST Temperature"
+        />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ldr_layout"
+            android:padding="16dp"
+            android:layout_marginTop="50dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Light Sensor"
+                android:textColor="#222222"
+                android:textSize="18sp"
+                android:id="@+id/ldr_label"
+                android:textStyle="bold"
+        />
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ldr_label"
+                android:layout_marginLeft="30dp"
+                android:hint="Value for Sensor"
+                android:id="@+id/ldr_input"
+                android:inputType="numberDecimal"
+        />
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/post_ldr"
+                android:layout_below="@+id/ldr_label"
+                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"
+                android:text="POST Light"
+        />
+    </RelativeLayout>
+</LinearLayout>
