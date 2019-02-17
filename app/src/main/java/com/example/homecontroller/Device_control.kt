@@ -33,14 +33,14 @@ class Device_control : AppCompatActivity() {
                             val state = devices.getString("state")
 
                             if (i == 0) {
-                                if (state == "On")
+                                if (state == "1")
                                     fan_control.isChecked = true
-                                else if (state == "Off")
+                                else if (state == "0")
                                     fan_control.isChecked = false
                             }else if (i == 1) {
-                                if (state == "On")
+                                if (state == "1")
                                     light_control.isChecked = true
-                                else if (state == "Off")
+                                else if (state == "0")
                                     light_control.isChecked = false
                             }
                         }
@@ -57,7 +57,7 @@ class Device_control : AppCompatActivity() {
         fan_control.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 val fanOnRequest = JsonArrayRequest(
-                    Request.Method.GET, (ip + "manage/api/devices/Fan/setstate/On"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
+                    Request.Method.GET, (ip + "manage/api/devices/Fan/setstate/1"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
                     {
                         /* This code is executed if there is an error. */
                     })
@@ -67,7 +67,7 @@ class Device_control : AppCompatActivity() {
 
             } else if (!isChecked){
                 val fanOffRequest = JsonArrayRequest(
-                    Request.Method.GET, (ip + "manage/api/devices/Fan/setstate/Off"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
+                    Request.Method.GET, (ip + "manage/api/devices/Fan/setstate/0"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
                     {
                         /* This code is executed if there is an error. */
                     })
@@ -79,7 +79,7 @@ class Device_control : AppCompatActivity() {
         light_control.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 val fanOnRequest = JsonArrayRequest(
-                    Request.Method.GET, (ip + "manage/api/devices/Light/setstate/On"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
+                    Request.Method.GET, (ip + "manage/api/devices/Light/setstate/1"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
                     {
                         /* This code is executed if there is an error. */
                     })
@@ -88,7 +88,7 @@ class Device_control : AppCompatActivity() {
 
             } else if(!isChecked){
                 val fanOffRequest = JsonArrayRequest(
-                    Request.Method.GET, (ip + "manage/api/devices/Light/setstate/Off"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
+                    Request.Method.GET, (ip + "manage/api/devices/Light/setstate/0"), null, Response.Listener { response -> }, Response.ErrorListener //Create an error listener to handle errors appropriately.
                     {
                         /* This code is executed if there is an error. */
                     })

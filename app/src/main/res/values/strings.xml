@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Home Controller</string>
+    <string name="app_name">Smart Home</string>
     <string name="purpose">IoT-based Smart Home App</string>
     <string name="ip">Enter IP of the Server here…</string>
     <string name="show_dev">Show Enrolled Devices</string>
