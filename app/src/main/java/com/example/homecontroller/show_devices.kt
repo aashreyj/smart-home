@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
@@ -20,14 +21,15 @@ class show_devices : AppCompatActivity() {
         setContentView(R.layout.activity_show_devices)
 
 
-        var respond = findViewById<TextView>(R.id.response_text)
-        var label = findViewById<TextView>(R.id.header)
+        val respond = findViewById<TextView>(R.id.response_text)
+        val label = findViewById<TextView>(R.id.header)
         val ip = (this.application as MyApplication).getAddress()
 
         val exampleRequestQueue = Volley.newRequestQueue(this)
 
 
-            var url = ip + "manage/api/devices/" //creating the url to be accessed
+        val url = ip + "manage/api/devices/" //creating the url to be accessed
+        Toast.makeText(this@show_devices, url, Toast.LENGTH_SHORT).show()
             respond.text = ""
 
             val exampleStringRequest = JsonArrayRequest(
@@ -45,7 +47,6 @@ class show_devices : AppCompatActivity() {
 
                             label.text = "The following devices were found online: "
                             respond.append("Name: $name\nState: $state\nType: $type\nLocation: $location\n\n\n")
-
                         }
                     } catch (e: JSONException) {
                         e.printStackTrace()
@@ -58,11 +59,10 @@ class show_devices : AppCompatActivity() {
                 })
 
             exampleRequestQueue.add(exampleStringRequest)
-
     }
 
     override fun onBackPressed() {
-        var backToMain = Intent(this@show_devices, MainActivity::class.java)
+        val backToMain = Intent(this@show_devices, MainActivity::class.java)
         startActivity(backToMain)
         this.finish()
     }
