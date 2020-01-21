@@ -28,7 +28,7 @@ class show_devices : AppCompatActivity() {
         val exampleRequestQueue = Volley.newRequestQueue(this)
 
 
-        val url = ip + "manage/api/devices/" //creating the url to be accessed
+        val url = "http://" + ip + "/manage/api/devices/" //creating the url to be accessed
         Toast.makeText(this@show_devices, url, Toast.LENGTH_SHORT).show()
             respond.text = ""
 

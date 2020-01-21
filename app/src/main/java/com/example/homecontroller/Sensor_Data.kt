@@ -28,11 +28,13 @@ class Sensor_Data : AppCompatActivity() {
 
         val ip = (this.application as MyApplication).getAddress()
 
+        val thermUrl = "http://" + ip + "/manage/api/sensors/thermistor/addlog/" //creating the url to be accessed
+        val lightUrl = "http://" + ip + "/manage/api/sensors/light_sensor/addlog/" //creating the url to be accessed
         temp_go.setOnClickListener {
             var tempPost = JSONObject()
             tempPost.put("value",temp_val.text.toString())
             val tempRequest = JsonObjectRequest(
-                Request.Method.POST, (ip + "manage/api/sensors/thermistor/addlog/"), tempPost, Response.Listener { response -> }, Response.ErrorListener {})
+                Request.Method.POST, (thermUrl), tempPost, Response.Listener { response -> }, Response.ErrorListener {})
 
             RequestQueue.add(tempRequest)
             Toast.makeText(this@Sensor_Data, "Thermistor data was Posted.", Toast.LENGTH_SHORT).show()
@@ -43,7 +45,7 @@ class Sensor_Data : AppCompatActivity() {
             var lightPost = JSONObject()
             lightPost.put("value",light_val.text.toString())
             val lightRequest = JsonObjectRequest(
-                Request.Method.POST, (ip + "manage/api/sensors/light_sensor/addlog/"), lightPost, Response.Listener { response -> }, Response.ErrorListener {})
+                Request.Method.POST, (lightUrl), lightPost, Response.Listener { response -> }, Response.ErrorListener {})
 
             RequestQueue.add(lightRequest)
             Toast.makeText(this@Sensor_Data, "Light data was Posted.",Toast.LENGTH_SHORT).show()

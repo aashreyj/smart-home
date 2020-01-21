@@ -24,8 +24,7 @@ class Show_deviceLog : AppCompatActivity() {
 
         val exampleRequestQueue = Volley.newRequestQueue(this)
 
-
-            var url = ip + "manage/api/devicelogs/" //creating the url to be accessed
+        val url = "http://" + ip + "/manage/api/devicelogs/" //creating the url to be accessed
             respond.text = ""
 
             val exampleStringRequest = JsonArrayRequest(

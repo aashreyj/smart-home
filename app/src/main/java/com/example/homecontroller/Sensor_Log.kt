@@ -25,7 +25,7 @@ class Sensor_Log : AppCompatActivity() {
         val exampleRequestQueue = Volley.newRequestQueue(this)
 
 
-        var url = ip + "manage/api/sensorlogs/" //creating the url to be accessed
+        val url = "http://" + ip + "/manage/api/sensorlogs/" //creating the url to be accessed
         respond.text = ""
 
         val exampleStringRequest = JsonArrayRequest(
